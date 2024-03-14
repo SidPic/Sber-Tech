@@ -1,6 +1,8 @@
 # Sber-Tech
 calendar optimization
 
+[colab notebook](https://colab.research.google.com/drive/11RG1AB5sBtz1vzbcqPcJ2Xm56VbTnyCv?usp=sharing)
+
 Извиняюсь, UI не успел сделать.
   - Файл загружается в коде (блок "Подготовка XML") (data = ET.parse("проверочное задание.xml"))
   - Параметры оптимизации задаются как параметры функции optimize (блок "Main")

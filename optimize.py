@@ -273,8 +273,10 @@ def optimize(max_employees: int = -1, max_cost: int = -1):
               max_cost = 0
             break
         else:
-          while not bind(task, res):
-            move(task, str_to_date(getfield(task, "Start").text) + timedelta(days=1))
+          move(task, last_work(res) + timedelta(hours=15)
+          bind(task, res)
+          ##while not bind(task, res):
+            ##move(task, str_to_date(getfield(task, "Start").text) + timedelta(days=1))
           binded = True
           break
 
@@ -291,8 +293,10 @@ def optimize(max_employees: int = -1, max_cost: int = -1):
             min_lw = lw
             min_busy = res
 
-      while not bind(task, min_busy):
-        move(task, str_to_date(getfield(task, "Start").text) + timedelta(days=1))
+      move(task, min_lw + timedelta(hours=15))
+      bind(task, min_busy)
+      ##while not bind(task, min_busy):
+        ##move(task, str_to_date(getfield(task, "Start").text) + timedelta(days=1))
       max_employees -= 1
       max_cost -= get_duration(task) * get_emplcost(min_busy)
       if (not co) and (max_cost < 0):
